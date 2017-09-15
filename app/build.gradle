@@ -27,4 +27,16 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:support-v4:25.3.1'
     testCompile 'junit:junit:4.12'
+
+    // for picasso
+    compile 'com.squareup.picasso:picasso:2.5.2'
+
+    // for Gson
+    compile 'com.google.code.gson:gson:2.8.0'
+
+    // for okhttp
+    compile 'com.squareup.okhttp:okhttp:2.5.0'
+
+    // for recycler view1
+    compile 'com.android.support:recyclerview-v7:25.3.1'
 }

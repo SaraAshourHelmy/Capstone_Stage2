@@ -2,4 +2,16 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- Splash Screen -->
+    <dimen name="splash_margin_bottom_loading">20dp</dimen>
+
+    <!-- News adapter -->
+    <dimen name="corner_radius">15dp</dimen>
+    <dimen name="adapter_margin">10dp</dimen>
+    <dimen name="adapter_margin_top">20dp</dimen>
+    <dimen name="adapter_height">150dp</dimen>
+    <dimen name="adapter_txt_size">17sp</dimen>
+    <dimen name="adapter_elevation">2dp</dimen>
+
 </resources>
