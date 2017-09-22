@@ -107,6 +107,7 @@ public class HomeFragment extends Fragment implements NewsAdapter.RecyclerItemCl
     }
 
     private void setNewsList() {
+
         NewsAdapter adapter = null;
         if (!HomeActivity.isTablet)
             adapter = new NewsAdapter(lstNews, this);
