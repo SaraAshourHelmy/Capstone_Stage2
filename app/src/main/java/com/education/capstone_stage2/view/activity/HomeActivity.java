@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.PreferenceManager;
 import android.view.Menu;
-import android.view.View;
 import android.widget.FrameLayout;
 
 import com.education.capstone_stage2.R;
@@ -40,16 +39,13 @@ public class HomeActivity extends AppCompatActivity implements
     }
 
     private void bindView() {
-
         newsDetailsContainer = (FrameLayout) findViewById(R.id.containerNewsDetails);
         HomeFragment homeFragment = new HomeFragment();
         FragmentUtility.replaceFragment(this, R.id.containerNews, homeFragment);
         isTablet = getResources().getBoolean(R.bool.isTablet);
-
     }
 
     private void setNewsDetailsFragment(News news) {
-        newsDetailsContainer.setVisibility(View.VISIBLE);
         DetailsFragment detailsFragment = new DetailsFragment();
         Bundle bundle = new Bundle();
         bundle.putParcelable(HomeFragment.NEWS_ITEM, news);
@@ -76,7 +72,6 @@ public class HomeActivity extends AppCompatActivity implements
         getLanguage();
         recreate();
     }
-
 
     @Override
     public void onItemClick(News news) {

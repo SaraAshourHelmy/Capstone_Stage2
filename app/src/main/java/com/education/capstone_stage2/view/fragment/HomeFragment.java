@@ -4,6 +4,7 @@ package com.education.capstone_stage2.view.fragment;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
@@ -115,7 +116,13 @@ public class HomeFragment extends Fragment implements NewsAdapter.RecyclerItemCl
         layoutManager.setOrientation(LinearLayout.VERTICAL);
         recyclerViewNews.setLayoutManager(layoutManager);
         recyclerViewNews.setAdapter(adapter);
-        ((HomeActivity) getActivity()).onItemClick(lstNews.get(0));
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                ((HomeActivity) getActivity()).onItemClick(lstNews.get(0));
+            }
+        });
+
     }
 
     @Override
