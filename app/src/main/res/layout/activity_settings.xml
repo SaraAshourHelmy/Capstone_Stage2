@@ -1,19 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_settings"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.education.capstone_stage2.view.fragment.HomeFragment">
+    tools:context="com.education.capstone_stage2.view.activity.SettingsActivity">
 
     <include
         layout="@layout/layout_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></include>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_news"
-        adjustViewBounds="true"
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        class="com.education.capstone_stage2.view.fragment.SettingFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
-
+        android:layout_height="match_parent"></fragment>
 </LinearLayout>

@@ -1,10 +1,13 @@
 package com.education.capstone_stage2.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by Sara on 9/15/2017.
  */
 
-public class News {
+public class News implements Parcelable {
 
     private String enTitle;
     private String arTitle;
@@ -17,13 +20,41 @@ public class News {
     private double latitude;
     private double longitude;
     private String imgURL;
-    private NewsType type;
+    private String type;
 
-    public NewsType getType() {
+    public News(){}
+    protected News(Parcel in) {
+        enTitle = in.readString();
+        arTitle = in.readString();
+        enShortDescription = in.readString();
+        arShortDescription = in.readString();
+        enLongDescription = in.readString();
+        arLongDescription = in.readString();
+        enDate = in.readString();
+        arDate = in.readString();
+        latitude = in.readDouble();
+        longitude = in.readDouble();
+        imgURL = in.readString();
+        type = in.readString();
+    }
+
+    public static final Creator<News> CREATOR = new Creator<News>() {
+        @Override
+        public News createFromParcel(Parcel in) {
+            return new News(in);
+        }
+
+        @Override
+        public News[] newArray(int size) {
+            return new News[size];
+        }
+    };
+
+    public String getType() {
         return type;
     }
 
-    public void setType(NewsType type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -114,5 +145,26 @@ public class News {
 
     public void setImgURL(String imgURL) {
         this.imgURL = imgURL;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(enTitle);
+        dest.writeString(arTitle);
+        dest.writeString(enShortDescription);
+        dest.writeString(arShortDescription);
+        dest.writeString(enLongDescription);
+        dest.writeString(arLongDescription);
+        dest.writeString(enDate);
+        dest.writeString(arDate);
+        dest.writeDouble(latitude);
+        dest.writeDouble(longitude);
+        dest.writeString(imgURL);
+        dest.writeString(type);
     }
 }

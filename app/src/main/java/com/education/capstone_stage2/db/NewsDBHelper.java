@@ -33,8 +33,9 @@ public class NewsDBHelper extends SQLiteOpenHelper {
                 + NewsContract.NewsEntry.COLUMN_NEWS_AR_DATE + " STRING NOT NULL ,"
                 + NewsContract.NewsEntry.COLUMN_NEWS_LATITUDE + " DOUBLE NOT NULL ,"
                 + NewsContract.NewsEntry.COLUMN_NEWS_LONGITUDE + " DOUBLE NOT NULL ,"
-                + NewsContract.NewsEntry.COLUMN_NEWS_IMAGE_URL + " STRING NOT NULL );";
-        
+                + NewsContract.NewsEntry.COLUMN_NEWS_IMAGE_URL + " STRING NOT NULL ,"
+                + NewsContract.NewsEntry.COLUMN_NEWS_TYPE + " STRING NOT NULL );";
+
         db.execSQL(studentQuery);
     }
 

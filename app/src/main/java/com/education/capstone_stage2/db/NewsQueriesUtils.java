@@ -26,13 +26,14 @@ public class NewsQueriesUtils {
         cv.put(NewsContract.NewsEntry.COLUMN_NEWS_LATITUDE, news.getLatitude());
         cv.put(NewsContract.NewsEntry.COLUMN_NEWS_LONGITUDE, news.getLongitude());
         cv.put(NewsContract.NewsEntry.COLUMN_NEWS_IMAGE_URL, news.getImgURL());
+        cv.put(NewsContract.NewsEntry.COLUMN_NEWS_TYPE, news.getType());
 
         return cv;
     }
 
-    public static Cursor getAllNews(SQLiteDatabase db) {
-        return db.query(NewsContract.NewsEntry.TABLE_NAME, null, null,
-                null, null, null, null);
+    public static Cursor getAllNews(SQLiteDatabase db, String selection, String[] selectionArgs) {
+        return db.query(NewsContract.NewsEntry.TABLE_NAME, null, selection, selectionArgs,
+                null, null, null);
     }
 
     public static Cursor getNews(SQLiteDatabase db, String id) {

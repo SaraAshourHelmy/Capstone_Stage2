@@ -1,13 +1,46 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.education.capstone_stage2.view.fragment.DetailsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <include
+        layout="@layout/layout_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"></include>
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/imgV_newsDetails"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/details_image_height" />
+
+    <TextView
+        android:id="@+id/tv_details_newsDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/details_group_padding"
+        android:layout_marginTop="@dimen/details_description_margin_top" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/details_group_height"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/details_group_padding"
+        android:paddingRight="@dimen/details_group_padding">
+
+        <TextView
+            android:id="@+id/tv_newsDate"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="start|center_vertical" />
+
+        <ImageView
+            android:id="@+id/imgV_navigate"
+            android:layout_width="@dimen/details_navigate_icon_width"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_navigation" />
+    </LinearLayout>
+
+</LinearLayout>

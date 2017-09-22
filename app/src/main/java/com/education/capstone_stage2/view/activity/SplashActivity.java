@@ -5,9 +5,11 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.preference.PreferenceManager;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -19,6 +21,7 @@ import com.education.capstone_stage2.model.NewsDataUtils;
 import com.education.capstone_stage2.network.ErrorType;
 import com.education.capstone_stage2.network.NewsAPI;
 import com.education.capstone_stage2.network.NewsService;
+import com.education.capstone_stage2.utils.LocalUtils;
 import com.education.capstone_stage2.utils.NavigationManager;
 import com.education.capstone_stage2.utils.NetWorkUtility;
 
@@ -31,12 +34,16 @@ public class SplashActivity extends AppCompatActivity {
     public static ProgressBar loadingProgress;
     private static boolean flag = false;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         bindView();
+
     }
+
+
 
     private void bindView() {
 
@@ -102,6 +109,7 @@ public class SplashActivity extends AppCompatActivity {
 
     @Override
     protected void onStop() {
+
         super.onStop();
         if (receiver != null)
             unregisterReceiver(receiver);

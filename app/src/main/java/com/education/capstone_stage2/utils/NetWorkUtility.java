@@ -11,7 +11,6 @@ import android.util.Log;
 public class NetWorkUtility {
 
     public static boolean checkInternetConnection(Context context) {
-        Log.e("internet_connection", "enter");
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             NetworkInfo[] netInfo = cm.getAllNetworkInfo();

@@ -14,4 +14,11 @@
     <dimen name="adapter_txt_size">17sp</dimen>
     <dimen name="adapter_elevation">2dp</dimen>
 
+    <!-- Details screen -->
+    <dimen name="details_image_height">150dp</dimen>
+    <dimen name="details_description_margin_top">10dp</dimen>
+    <dimen name="details_group_height">50dp</dimen>
+    <dimen name="details_group_padding">20dp</dimen>
+    <dimen name="details_navigate_icon_width">50dp</dimen>
+
 </resources>

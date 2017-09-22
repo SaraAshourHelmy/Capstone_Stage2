@@ -22,7 +22,7 @@ public class NewsDataUtils {
         news.setImgURL("");
         news.setLatitude(30.0270233);
         news.setLongitude(31.4205552);
-        news.setType(NewsType.Recent);
+        news.setType(NewsType.Recent.name());
         listNews.add(news);
 
         //---------------------------------------
@@ -38,7 +38,7 @@ public class NewsDataUtils {
         news.setImgURL("");
         news.setLatitude(30.0270233);
         news.setLongitude(31.4205552);
-        news.setType(NewsType.Recent);
+        news.setType(NewsType.Recent.name());
         listNews.add(news);
 
         //----------------------------------------
@@ -55,7 +55,7 @@ public class NewsDataUtils {
         news.setImgURL("");
         news.setLatitude(30.0270233);
         news.setLongitude(31.4205552);
-        news.setType(NewsType.Top_rated);
+        news.setType(NewsType.Top_rated.name());
         listNews.add(news);
 
         return listNews;

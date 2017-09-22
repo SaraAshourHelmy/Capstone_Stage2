@@ -22,9 +22,9 @@
         style="@style/TextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/adapter_margin"
+        android:layout_marginStart="@dimen/adapter_margin"
         android:layout_marginTop="@dimen/adapter_margin_top"
-        android:layout_toRightOf="@+id/imgV_news"
+        android:layout_toEndOf="@+id/imgV_news"
         android:padding="@dimen/adapter_margin"
         android:text="New Title 1" />
 
@@ -34,9 +34,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_newsTitle"
-        android:layout_marginLeft="@dimen/adapter_margin"
+        android:layout_marginStart="@dimen/adapter_margin"
         android:layout_marginTop="@dimen/adapter_margin"
-        android:layout_toRightOf="@+id/imgV_news"
+        android:layout_toEndOf="@+id/imgV_news"
         android:gravity="center_horizontal"
         android:text="New Description 1" />
 

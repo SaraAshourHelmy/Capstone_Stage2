@@ -67,7 +67,7 @@ public class NewsContentProvider extends ContentProvider {
         int match = matcher.match(uri);
         switch (match) {
             case NEWS:
-                cursor = NewsQueriesUtils.getAllNews(db);
+                cursor = NewsQueriesUtils.getAllNews(db, selection, selectionArgs);
                 if (cursor.getCount() < 0)
                     throw new SQLException("error in retrieve this uri " + uri);
                 break;

@@ -32,7 +32,6 @@ public final class NewsContract {
         public static final String COLUMN_NEWS_LATITUDE = "latitude";
         public static final String COLUMN_NEWS_LONGITUDE = "longitude";
         public static final String COLUMN_NEWS_IMAGE_URL = "imgURL";
-
-
+        public static final String COLUMN_NEWS_TYPE = "type";
     }
 }

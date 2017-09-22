@@ -7,4 +7,18 @@
     <string name="network_error">Error when get news !</string>
     <string name="internet_error">No internet connection !</string>
 
+    <!-- Menus title -->
+    <string name="recent">Recent</string>
+    <string name="top_rated">Top Rated</string>
+    <string name="setting">Settings</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Preferences -->
+    <string name="pref_language">Language</string>
+    <string name="pref_language_arabic">Arabic</string>
+    <string name="pref_language_english">English</string>
+    <string name="pref_language_key">lang</string>
+
+
 </resources>
