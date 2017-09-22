@@ -10,7 +10,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -26,7 +25,6 @@ import com.education.capstone_stage2.db.NewsContract;
 import com.education.capstone_stage2.model.News;
 import com.education.capstone_stage2.model.NewsType;
 import com.education.capstone_stage2.utils.NavigationManager;
-import com.education.capstone_stage2.utils.ToolbarUtils;
 import com.education.capstone_stage2.view.activity.DetailsActivity;
 import com.education.capstone_stage2.view.activity.HomeActivity;
 import com.education.capstone_stage2.view.adapter.NewsAdapter;
@@ -63,6 +61,12 @@ public class HomeFragment extends Fragment implements NewsAdapter.RecyclerItemCl
     }
 
     @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        setLoader();
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -74,11 +78,8 @@ public class HomeFragment extends Fragment implements NewsAdapter.RecyclerItemCl
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         recyclerViewNews = (RecyclerView) view.findViewById(R.id.recycler_news);
-        toolbar = (Toolbar) view.findViewById(R.id.toolbar);
-        ToolbarUtils.setToolbar((AppCompatActivity) getActivity(), toolbar
-                , false);
 
-        setLoader();
+        //setLoader();
 
     }
 
@@ -117,12 +118,15 @@ public class HomeFragment extends Fragment implements NewsAdapter.RecyclerItemCl
         layoutManager.setOrientation(LinearLayout.VERTICAL);
         recyclerViewNews.setLayoutManager(layoutManager);
         recyclerViewNews.setAdapter(adapter);
-        new Handler().post(new Runnable() {
-            @Override
-            public void run() {
-                ((HomeActivity) getActivity()).onItemClick(lstNews.get(0));
-            }
-        });
+        if (HomeActivity.isTablet) {
+            new Handler().post(new Runnable() {
+                @Override
+                public void run() {
+
+                    ((HomeActivity) getActivity()).onItemClick(lstNews.get(0));
+                }
+            });
+        }
 
     }
 

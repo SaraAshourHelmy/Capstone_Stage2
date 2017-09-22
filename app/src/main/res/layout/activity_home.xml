@@ -7,8 +7,12 @@
     android:orientation="vertical"
     tools:context="com.education.capstone_stage2.view.activity.HomeActivity">
 
-    <FrameLayout
+    <include
+        layout="@layout/layout_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></include>
 
+    <FrameLayout
         android:id="@+id/containerNews"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></FrameLayout>

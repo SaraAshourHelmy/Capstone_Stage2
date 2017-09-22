@@ -34,7 +34,7 @@ public class DetailsFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        isTablet = getResources().getBoolean(R.bool.isTablet);
         if (!isTablet) {
             Intent intent = getActivity().getIntent();
             if (intent.hasExtra(HomeFragment.NEWS_ITEM)) {
@@ -58,7 +58,8 @@ public class DetailsFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        toolbar = (Toolbar) view.findViewById(R.id.toolbar);
+        if (!isTablet)
+            toolbar = (Toolbar) view.findViewById(R.id.toolbar);
         tvDescription = (TextView) view.findViewById(R.id.tv_details_newsDescription);
         tvDate = (TextView) view.findViewById(R.id.tv_newsDate);
         imgVNewsImage = (ImageView) view.findViewById(R.id.imgV_newsDetails);
@@ -68,16 +69,19 @@ public class DetailsFragment extends Fragment implements View.OnClickListener {
         imgNavigate.setOnClickListener(this);
 
         if (HomeActivity.isEnglish) {
-            toolbar.setTitle(news.getEnTitle());
+            if (!isTablet)
+                toolbar.setTitle(news.getEnTitle());
             tvDescription.setText(news.getEnLongDescription());
             tvDate.setText(news.getEnDate());
         } else {
-            toolbar.setTitle(news.getArTitle());
+            if (!isTablet)
+                toolbar.setTitle(news.getArTitle());
             tvDescription.setText(news.getArLongDescription());
             tvDate.setText(news.getArDate());
         }
-        ToolbarUtils.setToolbar((AppCompatActivity) getActivity(),
-                toolbar, true);
+        if (!isTablet)
+            ToolbarUtils.setToolbar((AppCompatActivity) getActivity(),
+                    toolbar, true);
 
 
     }
