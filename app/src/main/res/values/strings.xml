@@ -19,6 +19,8 @@
     <string name="pref_language_arabic">Arabic</string>
     <string name="pref_language_english">English</string>
     <string name="pref_language_key">lang</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 
 
 </resources>

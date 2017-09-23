@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.RemoteViews;
 
 import com.education.capstone_stage2.R;
-import com.education.capstone_stage2.view.activity.SplashActivity;
+import com.education.capstone_stage2.utils.MyApplication;
 
 
 /**
@@ -55,12 +55,16 @@ public class NewsAppWidget extends AppWidgetProvider {
                 R.layout.news_app_widget);
         Intent intent = new Intent(context, NewsService.class);
         views.setRemoteAdapter(R.id.lstV_news, intent);
-        if (SplashActivity.firstFlag) {
-            views.setViewVisibility(R.id.tv_noDesired, View.VISIBLE);
+
+        //SharedUtils sharedUtils = new SharedUtils(context);
+
+        if (MyApplication.getRecentNews() == null ||
+                MyApplication.getRecentNews().size() == 0) {
+            views.setViewVisibility(R.id.tv_noNews, View.VISIBLE);
         } else {
-            views.setViewVisibility(R.id.tv_noDesired, View.GONE);
+            views.setViewVisibility(R.id.tv_noNews, View.GONE);
         }
-        views.setEmptyView(R.id.lstV_news, R.id.tv_noDesired);
+        views.setEmptyView(R.id.lstV_news, R.id.tv_noNews);
         return views;
     }
 }

@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.education.capstone_stage2.R;
 import com.education.capstone_stage2.model.News;
-import com.education.capstone_stage2.view.activity.HomeActivity;
+import com.education.capstone_stage2.view.activity.SplashActivity;
 
 import java.util.ArrayList;
 
@@ -21,6 +21,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.Holder> {
 
     ArrayList<News> lstNews;
     RecyclerItemClick recyclerItemClick;
+    private int selectedPosition;
 
     public NewsAdapter(ArrayList<News> lstNews, RecyclerItemClick recyclerItemClick) {
         this.lstNews = lstNews;
@@ -39,7 +40,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.Holder> {
     @Override
     public void onBindViewHolder(Holder holder, int position) {
 
-        holder.bindData();
+        holder.bindData(holder);
     }
 
     @Override
@@ -63,15 +64,20 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.Holder> {
             itemView.setOnClickListener(this);
         }
 
-        public void bindData() {
+        public void bindData(Holder holder) {
             int position = getAdapterPosition();
+            if (selectedPosition == position) {
+                holder.itemView.setBackgroundResource(R.drawable.border_news_selected);
+            } else {
+                holder.itemView.setBackgroundResource(R.drawable.border_news);
+            }
             /*
             Picasso.with(imgNews.getContext()).
                     load(lstNews.get(position).getImgURL())
                     .placeholder(R.drawable.ic_image)
                     .error(R.drawable.loading_error)
                     .into(imgNews);*/
-            if (HomeActivity.isEnglish) {
+            if (SplashActivity.isEnglish) {
                 tvNewsTitle.setText(lstNews.get(position).getEnTitle());
                 tvNewsDescription.setText(lstNews.get(position).getEnShortDescription());
             } else {
@@ -83,8 +89,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.Holder> {
 
         @Override
         public void onClick(View v) {
-
+            selectedPosition=getAdapterPosition();
+            v.setBackgroundResource(R.drawable.border_selected);
             recyclerItemClick.onItemClick(lstNews.get(getAdapterPosition()));
+            notifyDataSetChanged();
         }
     }
 

@@ -12,7 +12,6 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,7 +24,9 @@ import com.education.capstone_stage2.db.NewsContract;
 import com.education.capstone_stage2.model.News;
 import com.education.capstone_stage2.model.NewsDataUtils;
 import com.education.capstone_stage2.model.NewsType;
+import com.education.capstone_stage2.utils.MyApplication;
 import com.education.capstone_stage2.utils.NavigationManager;
+import com.education.capstone_stage2.utils.WidgetUtility;
 import com.education.capstone_stage2.view.activity.DetailsActivity;
 import com.education.capstone_stage2.view.activity.HomeActivity;
 import com.education.capstone_stage2.view.adapter.NewsAdapter;
@@ -41,7 +42,6 @@ public class HomeFragment extends Fragment implements NewsAdapter.RecyclerItemCl
 
     private RecyclerView recyclerViewNews;
     private ArrayList<News> lstNews;
-    private Toolbar toolbar;
     private String selectedType = NewsType.Recent.name();
     public static final int LOADER_ID = 300;
     public static final String NEWS_ITEM = "news";
@@ -110,6 +110,10 @@ public class HomeFragment extends Fragment implements NewsAdapter.RecyclerItemCl
 
     private void setNewsList() {
 
+        if (selectedType.equals(NewsType.Recent.name())) {
+            MyApplication.setRecentNews(lstNews);
+            WidgetUtility.updateWidget(getContext());
+        }
         NewsAdapter adapter = null;
         if (!HomeActivity.isTablet)
             adapter = new NewsAdapter(lstNews, this);

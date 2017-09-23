@@ -7,22 +7,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.widget.FrameLayout;
 
 import com.education.capstone_stage2.R;
 import com.education.capstone_stage2.model.News;
 import com.education.capstone_stage2.utils.FragmentUtility;
 import com.education.capstone_stage2.utils.LocalUtils;
 import com.education.capstone_stage2.utils.ToolbarUtils;
+import com.education.capstone_stage2.utils.WidgetUtility;
 import com.education.capstone_stage2.view.adapter.NewsAdapter;
 import com.education.capstone_stage2.view.fragment.DetailsFragment;
 import com.education.capstone_stage2.view.fragment.HomeFragment;
 
 public class HomeActivity extends AppCompatActivity implements
-        SharedPreferences.OnSharedPreferenceChangeListener,
+        //SharedPreferences.OnSharedPreferenceChangeListener,
         NewsAdapter.RecyclerItemClick {
 
-    public static boolean isEnglish = true;
     public static boolean isTablet;
     private Toolbar toolbar;
 
@@ -31,14 +30,14 @@ public class HomeActivity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        getLanguage();
+
         setChangePreference();
         bindView();
     }
 
     private void setChangePreference() {
-        PreferenceManager.getDefaultSharedPreferences(this)
-                .registerOnSharedPreferenceChangeListener(this);
+       // PreferenceManager.getDefaultSharedPreferences(this)
+         //       .registerOnSharedPreferenceChangeListener(this);
     }
 
     private void bindView() {
@@ -66,22 +65,6 @@ public class HomeActivity extends AppCompatActivity implements
         return true;
     }
 
-    public void getLanguage() {
-        SharedPreferences preferences =
-                PreferenceManager.getDefaultSharedPreferences(this);
-        isEnglish = preferences.getBoolean
-                (getString(R.string.pref_language_key), true);
-        LocalUtils.SetSettingLanguage(this, isEnglish);
-    }
-
-    @Override
-    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        getLanguage();
-        //this.recreate();
-        Intent intent = getIntent();
-        finish();
-        startActivity(intent);
-    }
 
     @Override
     public void onItemClick(News news) {
@@ -91,7 +74,6 @@ public class HomeActivity extends AppCompatActivity implements
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        PreferenceManager.getDefaultSharedPreferences(this)
-                .unregisterOnSharedPreferenceChangeListener(this);
+
     }
 }

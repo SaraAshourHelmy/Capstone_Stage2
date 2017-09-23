@@ -17,6 +17,7 @@ import com.education.capstone_stage2.model.News;
 import com.education.capstone_stage2.utils.ToolbarUtils;
 import com.education.capstone_stage2.view.activity.HomeActivity;
 import com.education.capstone_stage2.view.activity.MapsActivity;
+import com.education.capstone_stage2.view.activity.SplashActivity;
 
 
 public class DetailsFragment extends Fragment implements View.OnClickListener {
@@ -68,7 +69,7 @@ public class DetailsFragment extends Fragment implements View.OnClickListener {
 
         imgNavigate.setOnClickListener(this);
 
-        if (HomeActivity.isEnglish) {
+        if (SplashActivity.isEnglish) {
             if (!isTablet)
                 toolbar.setTitle(news.getEnTitle());
             tvDescription.setText(news.getEnLongDescription());

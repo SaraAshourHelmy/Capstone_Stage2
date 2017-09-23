@@ -1,6 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
     android:padding="@dimen/widget_margin">
 
@@ -13,11 +14,12 @@
         android:layout_marginTop="@dimen/adapter_margin"></ListView>
 
     <TextView
-        android:id="@+id/tv_noDesired"
+        android:id="@+id/tv_noNews"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="No News available please open app first"
+        android:textColor="@color/grey"
         android:visibility="gone" />
 
 </LinearLayout>

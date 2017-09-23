@@ -1,18 +1,14 @@
 package com.education.capstone_stage2.view.widget;
 
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.support.v7.preference.PreferenceManager;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
 import com.education.capstone_stage2.R;
-import com.education.capstone_stage2.db.NewsContract;
 import com.education.capstone_stage2.model.News;
-import com.education.capstone_stage2.model.NewsDataUtils;
-import com.education.capstone_stage2.model.NewsType;
+import com.education.capstone_stage2.utils.MyApplication;
 
 import java.util.ArrayList;
 
@@ -38,10 +34,11 @@ public class NewsWidgetFactory implements RemoteViewsService.RemoteViewsFactory 
     @Override
     public void onDataSetChanged() {
 
-        ContentResolver resolver = mContext.getContentResolver();
-        Cursor cursor = resolver.query(NewsContract.NewsEntry.CONTENT_URI, null,
-                NewsContract.NewsEntry.COLUMN_NEWS_TYPE + " = ?", new String[]{NewsType.Recent.name()}, null);
-        newsLst = NewsDataUtils.getNewsLst(cursor);
+        // ContentResolver resolver = mContext.getContentResolver();
+        //Cursor cursor = resolver.query(NewsContract.NewsEntry.CONTENT_URI, null,
+        //      NewsContract.NewsEntry.COLUMN_NEWS_TYPE + " = ?", new String[]{NewsType.Recent.name()}, null);
+        if (MyApplication.getRecentNews() != null || MyApplication.getRecentNews().size() > 0)
+            newsLst = MyApplication.getRecentNews();
     }
 
     @Override
@@ -61,6 +58,7 @@ public class NewsWidgetFactory implements RemoteViewsService.RemoteViewsFactory 
     public RemoteViews getViewAt(int position) {
         if (newsLst == null || newsLst.size() == 0)
             return null;
+
         RemoteViews views = new RemoteViews(mContext.getPackageName(), R.layout.adapter_widget);
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(mContext);

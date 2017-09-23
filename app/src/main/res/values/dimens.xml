@@ -23,7 +23,7 @@
 
     <!-- Widget Screen -->
     <dimen name="widget_margin">8dp</dimen>
-    <dimen name="widget_height">30dp</dimen>
+    <dimen name="widget_height">60dp</dimen>
 
 
 </resources>

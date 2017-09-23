@@ -5,7 +5,7 @@
     android:layout_marginLeft="@dimen/adapter_margin"
     android:layout_marginRight="@dimen/adapter_margin"
     android:layout_marginTop="@dimen/adapter_margin"
-    android:background="@drawable/border_news"
+    android:background="@drawable/border_selected"
     android:elevation="@dimen/adapter_elevation"
     android:orientation="vertical">
 
@@ -38,6 +38,7 @@
         android:layout_marginTop="@dimen/adapter_margin"
         android:layout_toEndOf="@+id/imgV_news"
         android:gravity="center_horizontal"
+        android:padding="@dimen/adapter_margin"
         android:text="New Description 1" />
 
 </RelativeLayout>
