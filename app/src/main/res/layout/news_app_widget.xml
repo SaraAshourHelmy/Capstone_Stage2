@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="No News available please open app first"
+        android:text="@string/widget_empty"
         android:textColor="@color/grey"
         android:visibility="gone" />
 

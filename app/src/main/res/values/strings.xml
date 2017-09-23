@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Capstone_Stage2</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="ads_unite_id" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="network_error">Error when get news !</string>
@@ -22,5 +23,9 @@
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
 
+    <!-- Details Screen -->
+    <string name="newImage">Image of News</string>
+    <string name="iconNavigation">Navigation Button</string>
 
+    <string name="widget_empty">No News available please open app first</string>
 </resources>

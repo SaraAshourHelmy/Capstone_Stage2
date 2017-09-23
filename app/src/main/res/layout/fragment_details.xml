@@ -23,6 +23,7 @@
                 android:id="@+id/imgV_newsDetails"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/details_image_height"
+                android:contentDescription="@string/newImage"
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_image" />
 
@@ -57,9 +58,22 @@
                     android:id="@+id/imgV_navigate"
                     android:layout_width="@dimen/details_navigate_icon_width"
                     android:layout_height="match_parent"
+                    android:contentDescription="@string/iconNavigation"
                     android:src="@drawable/ic_navigation" />
 
             </LinearLayout>
+
+            <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/adView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                ads:adSize="BANNER"
+                ads:adUnitId="@string/ads_unite_id">
+
+            </com.google.android.gms.ads.AdView>
+
         </LinearLayout>
     </ScrollView>
 

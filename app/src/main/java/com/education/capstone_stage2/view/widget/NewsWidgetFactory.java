@@ -34,9 +34,8 @@ public class NewsWidgetFactory implements RemoteViewsService.RemoteViewsFactory 
     @Override
     public void onDataSetChanged() {
 
-        // ContentResolver resolver = mContext.getContentResolver();
-        //Cursor cursor = resolver.query(NewsContract.NewsEntry.CONTENT_URI, null,
-        //      NewsContract.NewsEntry.COLUMN_NEWS_TYPE + " = ?", new String[]{NewsType.Recent.name()}, null);
+        if (MyApplication.getRecentNews() == null)
+            return;
         if (MyApplication.getRecentNews() != null || MyApplication.getRecentNews().size() > 0)
             newsLst = MyApplication.getRecentNews();
     }

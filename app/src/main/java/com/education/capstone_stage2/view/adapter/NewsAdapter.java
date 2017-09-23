@@ -66,7 +66,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.Holder> {
 
         public void bindData(Holder holder) {
             int position = getAdapterPosition();
-            if (selectedPosition == position) {
+            boolean isTablet = holder.itemView.getContext()
+                    .getResources().getBoolean(R.bool.isTablet);
+
+            if (selectedPosition == position && isTablet) {
                 holder.itemView.setBackgroundResource(R.drawable.border_news_selected);
             } else {
                 holder.itemView.setBackgroundResource(R.drawable.border_news);
@@ -89,7 +92,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.Holder> {
 
         @Override
         public void onClick(View v) {
-            selectedPosition=getAdapterPosition();
+            selectedPosition = getAdapterPosition();
             v.setBackgroundResource(R.drawable.border_selected);
             recyclerItemClick.onItemClick(lstNews.get(getAdapterPosition()));
             notifyDataSetChanged();

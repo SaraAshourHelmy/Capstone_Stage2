@@ -30,6 +30,7 @@ import com.education.capstone_stage2.utils.WidgetUtility;
 import com.education.capstone_stage2.view.activity.DetailsActivity;
 import com.education.capstone_stage2.view.activity.HomeActivity;
 import com.education.capstone_stage2.view.adapter.NewsAdapter;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 
@@ -47,6 +48,12 @@ public class HomeFragment extends Fragment implements NewsAdapter.RecyclerItemCl
     public static final String NEWS_ITEM = "news";
     LoaderManager manager;
     Loader<Cursor> loader;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
 
     public HomeFragment() {
         // Required empty public constructor
@@ -89,17 +96,14 @@ public class HomeFragment extends Fragment implements NewsAdapter.RecyclerItemCl
 
         switch (item.getItemId()) {
             case R.id.menu_recent:
-                Toast.makeText(getContext(), "recent", Toast.LENGTH_LONG).show();
                 selectedType = NewsType.Recent.name();
                 setLoader();
                 break;
             case R.id.menu_top_rated:
-                Toast.makeText(getContext(), "rated", Toast.LENGTH_LONG).show();
                 selectedType = NewsType.Top_rated.name();
                 setLoader();
                 break;
             case R.id.menu_setting:
-                Toast.makeText(getContext(), "setting", Toast.LENGTH_LONG).show();
                 NavigationManager.navigateToSetting(getActivity());
                 break;
             default:

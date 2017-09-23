@@ -19,12 +19,13 @@ import com.education.capstone_stage2.utils.LocalUtils;
 import com.education.capstone_stage2.utils.NavigationManager;
 import com.education.capstone_stage2.utils.NetWorkUtility;
 import com.education.capstone_stage2.utils.SharedUtils;
-import com.education.capstone_stage2.utils.WidgetUtility;
+import com.google.android.gms.ads.MobileAds;
 
 public class SplashActivity extends AppCompatActivity implements
         SharedPreferences.OnSharedPreferenceChangeListener {
 
     MyReceiver receiver;
+
 
     public static ProgressBar loadingProgress;
     SharedUtils sharedUtils;
@@ -42,6 +43,7 @@ public class SplashActivity extends AppCompatActivity implements
 
 
     private void bindView() {
+
 
         sharedUtils = new SharedUtils(this);
         loadingProgress = (ProgressBar) findViewById(R.id.loading);

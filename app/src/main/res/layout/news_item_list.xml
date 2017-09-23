@@ -15,6 +15,7 @@
         android:layout_height="match_parent"
         android:layout_centerVertical="true"
         android:layout_margin="@dimen/adapter_margin"
+        android:contentDescription="@string/newImage"
         android:src="@drawable/ic_image" />
 
     <TextView
@@ -26,7 +27,7 @@
         android:layout_marginTop="@dimen/adapter_margin_top"
         android:layout_toEndOf="@+id/imgV_news"
         android:padding="@dimen/adapter_margin"
-        android:text="New Title 1" />
+        />
 
     <TextView
         android:id="@+id/tv_newsDescription"
@@ -39,6 +40,6 @@
         android:layout_toEndOf="@+id/imgV_news"
         android:gravity="center_horizontal"
         android:padding="@dimen/adapter_margin"
-        android:text="New Description 1" />
+        />
 
 </RelativeLayout>
