@@ -5,7 +5,7 @@ android {
         config {
             keyAlias 'key0'
             keyPassword 'sara12345'
-            storeFile file('D:/Applications/Capstone_Stage2/capstone2.jks')
+            storeFile file("$rootDir/capstone2.jks")
             storePassword 'sara12345'
         }
     }
