@@ -21,4 +21,9 @@
     <dimen name="details_group_padding">20dp</dimen>
     <dimen name="details_navigate_icon_width">50dp</dimen>
 
+    <!-- Widget Screen -->
+    <dimen name="widget_margin">8dp</dimen>
+    <dimen name="widget_height">30dp</dimen>
+
+
 </resources>

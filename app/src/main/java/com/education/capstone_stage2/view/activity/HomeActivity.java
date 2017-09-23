@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.FrameLayout;
 
 import com.education.capstone_stage2.R;
 import com.education.capstone_stage2.model.News;

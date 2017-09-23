@@ -5,11 +5,9 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.preference.PreferenceManager;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -21,7 +19,6 @@ import com.education.capstone_stage2.model.NewsDataUtils;
 import com.education.capstone_stage2.network.ErrorType;
 import com.education.capstone_stage2.network.NewsAPI;
 import com.education.capstone_stage2.network.NewsService;
-import com.education.capstone_stage2.utils.LocalUtils;
 import com.education.capstone_stage2.utils.NavigationManager;
 import com.education.capstone_stage2.utils.NetWorkUtility;
 
@@ -32,7 +29,8 @@ public class SplashActivity extends AppCompatActivity {
     MyReceiver receiver;
 
     public static ProgressBar loadingProgress;
-    private static boolean flag = false;
+    // todo turn flag to true
+    public static boolean firstFlag = false;
 
 
     @Override
@@ -54,7 +52,8 @@ public class SplashActivity extends AppCompatActivity {
 
     private void saveData() {
 
-        if (!flag) {
+        /*
+        if (firstFlag) {
 
             receiver = new MyReceiver();
             IntentFilter filter = new IntentFilter(NewsService.ACTION_FINISH);
@@ -75,12 +74,12 @@ public class SplashActivity extends AppCompatActivity {
                 Uri uri = getContentResolver().insert(NewsContract.NewsEntry.CONTENT_URI, cv);
 
             }
-            flag = true;
+            firstFlag = false;
         } else {
             NavigationManager.navigateToHome(SplashActivity.this);
-        }
+        }*/
 
-
+        NavigationManager.navigateToHome(SplashActivity.this);
     }
 
     private void showErrorMessage(ErrorType type) {

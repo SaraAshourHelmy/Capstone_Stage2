@@ -1,5 +1,9 @@
 package com.education.capstone_stage2.model;
 
+import android.database.Cursor;
+
+import com.education.capstone_stage2.db.NewsContract;
+
 import java.util.ArrayList;
 
 /**
@@ -59,5 +63,42 @@ public class NewsDataUtils {
         listNews.add(news);
 
         return listNews;
+    }
+
+    public static ArrayList<News> getNewsLst(Cursor data) {
+        ArrayList<News> lstNews = new ArrayList<>();
+        News news;
+        while (data.moveToNext()) {
+            news = new News();
+
+            news.setImgURL(data.getString(data.getColumnIndex
+                    (NewsContract.NewsEntry.COLUMN_NEWS_IMAGE_URL)));
+            news.setEnTitle(data.getString(data.getColumnIndex
+                    (NewsContract.NewsEntry.COLUMN_NEWS_EN_TITLE)));
+            news.setArTitle(data.getString(data.getColumnIndex
+                    (NewsContract.NewsEntry.COLUMN_NEWS_AR_TITLE)));
+            news.setEnShortDescription(data.getString(data.getColumnIndex
+                    (NewsContract.NewsEntry.COLUMN_NEWS_EN_SHORT_DESCRIPTION)));
+            news.setArShortDescription(data.getString(data.getColumnIndex
+                    (NewsContract.NewsEntry.COLUMN_NEWS_AR_SHORT_DESCRIPTION)));
+            news.setEnLongDescription(data.getString(data.getColumnIndex
+                    (NewsContract.NewsEntry.COLUMN_NEWS_EN_LONG_DESCRIPTION)));
+            news.setArLongDescription(data.getString(data.getColumnIndex
+                    (NewsContract.NewsEntry.COLUMN_NEWS_AR_LONG_DESCRIPTION)));
+            news.setEnDate(data.getString(data.getColumnIndex
+                    (NewsContract.NewsEntry.COLUMN_NEWS_EN_DATE)));
+            news.setArDate(data.getString(data.getColumnIndex
+                    (NewsContract.NewsEntry.COLUMN_NEWS_AR_DATE)));
+            news.setLatitude(data.getDouble(data.getColumnIndex
+                    (NewsContract.NewsEntry.COLUMN_NEWS_LATITUDE)));
+            news.setLongitude(data.getDouble(data.getColumnIndex
+                    (NewsContract.NewsEntry.COLUMN_NEWS_LONGITUDE)));
+            news.setType(data.getString(data.getColumnIndex
+                    (NewsContract.NewsEntry.COLUMN_NEWS_TYPE)));
+
+            lstNews.add(news);
+
+        }
+        return lstNews;
     }
 }
