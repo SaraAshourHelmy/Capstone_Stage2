@@ -38,8 +38,7 @@ public class NewsService extends IntentService {
 
         String response = NewsAPI.getNewsAPI();
         if (!response.equals(NewsAPI.ERROR_CODE)) {
-            // todo parse json
-            //NavigationManager.navigateToHome(SplashActivity.this);
+
             try {
                 JSONObject jsonObject = new JSONObject(response);
                 JSONArray jsonArray = jsonObject.getJSONArray("news");

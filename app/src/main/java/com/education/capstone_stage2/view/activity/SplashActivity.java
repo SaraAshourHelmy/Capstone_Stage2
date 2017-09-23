@@ -27,7 +27,6 @@ public class SplashActivity extends AppCompatActivity implements
     MyReceiver receiver;
 
     public static ProgressBar loadingProgress;
-    // todo turn flag to true
     SharedUtils sharedUtils;
     public static boolean isEnglish = true;
 
@@ -63,15 +62,6 @@ public class SplashActivity extends AppCompatActivity implements
             } else {
                 showErrorMessage(ErrorType.No_Connection);
             }
-
-            /*// todo save data in NewsService
-            ArrayList<News> newsLst = NewsDataUtils.getNews();
-            for (int i = 0; i < newsLst.size(); i++) {
-
-                ContentValues cv = NewsQueriesUtils.getNewsContentValues(newsLst.get(i));
-                Uri uri = getContentResolver().insert(NewsContract.NewsEntry.CONTENT_URI, cv);
-
-            }*/
 
         } else {
             NavigationManager.navigateToHome(SplashActivity.this);
